@@ -1,27 +1,39 @@
 from rest_framework import serializers
+from .models import Header, Category, Tours, Article, Comment, Footer
 
-from .models import Header, Navbar, Tarif, Travel
 
-
-class HeaderSerializers(serializers.ModelSerializer):
+class HeaderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Header
         fields = '__all__'
 
 
-class NavbarSerializers(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Navbar
+        model = Category
         fields = '__all__'
 
 
-class NavbarSerializers(serializers.ModelSerializer):
+class ToursSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Tarif
+        model = Tours
         fields = '__all__'
 
 
-class NavbarSerializers(serializers.ModelSerializer):
+class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Travel
+        model = Article
+        fields = '__all__'
+
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+
+class FooterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Footer
         fields = '__all__'

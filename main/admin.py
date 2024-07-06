@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Header, Category, Tours
 
-# Register your models here.
+admin.site.register(Header)
+admin.site.register(Category)
+admin.site.register(Tours)

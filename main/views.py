@@ -1,20 +1,43 @@
-from django.shortcuts import render
+from .models import Header, Category, Tours, Article, Comment, Footer
+from rest_framework.viewsets import ModelViewSet
+from .serializers import (HeaderSerializer, CategorySerializer, ToursSerializer,
+                          ArticleSerializer,  CommentSerializer,
+                          FooterSerializer)
 
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
-from .serializers import HeaderSerializers
-from rest_framework import viewsets
-from rest_framework.response import Response
+from .permissions import CustomPermission
 
-class HeaderViewSet(viewsets.ViewSet):
 
-    def list(self, request):
-        queryset = User.objects.all()
-        serializer = HeaderSerializers(queryset, many=True)
-        return Response(serializer.data)
+class HeaderView(ModelViewSet):
+    queryset = Header.objects.all()
+    serializer_class = HeaderSerializer
+    permission_classes = [CustomPermission]
 
-    def retrieve(self, request, pk=None):
-        queryset = User.objects.all()
-        serializer = HeaderSerializers()
-        return Response(serializer.data)
 
+class CategoryView(ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = [CustomPermission]
+
+
+class ToursView(ModelViewSet):
+    queryset = Tours.objects.all()
+    serializer_class = ToursSerializer
+    permission_classes = [CustomPermission]
+
+
+class ArticleView(ModelViewSet):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    permission_classes = [CustomPermission]
+
+
+class CommentView(ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    permission_classes = [CustomPermission]
+
+
+class FooterView(ModelViewSet):
+    queryset = Footer.objects.all()
+    serializer_class = FooterSerializer
+    permission_classes = [CustomPermission]
